@@ -1,4 +1,4 @@
-export default interface Props {
+export default interface CardInterface {
   name: string;
   isGuessed: boolean;
   index: number;

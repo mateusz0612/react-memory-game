@@ -1,17 +1,9 @@
 import React, { useRef } from "react";
 import CardInterface from "../interfaces/CardInterface";
+import CardPropsInterface from "../interfaces/CardPropsInterface";
 import images from "../images";
 
-interface Props {
-  cards: CardInterface[];
-  currentCards: CardInterface[];
-  setCards: React.Dispatch<React.SetStateAction<CardInterface[]>>;
-  index: number;
-  isPaused: boolean;
-  setIsPaused: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Card: React.FC<Props> = ({
+const Card: React.FC<CardPropsInterface> = ({
   index,
   cards,
   setCards,
