@@ -1,70 +1,54 @@
 import React, { useState } from "react";
-import nextId from "react-id-generator";
 import "./CardContainerStyles.css";
-import images from "../images";
+import Card from "./Card";
+import CardInterface from "../interfaces/CardInterface";
+import nextId from "react-id-generator";
 
-interface Card {
-  name: string;
-  isFlipped: boolean;
-  isGuessed: boolean;
-}
+const currentCards: string[] = [];
 
 const CardContainer: React.FC = () => {
-  const currentCards: Card[] = [];
   const [checkResult, setCheckResult] = useState("is there a match?");
-  const [cards, setCards] = useState<Card[]>([
+  const [cards, setCards] = useState<CardInterface[]>([
     {
       name: "react",
-      isFlipped: false,
       isGuessed: false,
+      isFaceUp: false,
+      index: 0,
     },
     {
       name: "angular",
-      isFlipped: false,
       isGuessed: false,
+      isFaceUp: false,
+      index: 1,
     },
     {
       name: "react",
-      isFlipped: false,
       isGuessed: false,
+      isFaceUp: false,
+      index: 2,
     },
     {
       name: "angular",
-      isFlipped: false,
       isGuessed: false,
+      isFaceUp: false,
+      index: 3,
     },
   ]);
-
-  const checkForMatch = () => {
-    const [firstCardValue, secondCardValue] = currentCards;
-    if (firstCardValue.name === secondCardValue.name) setCheckResult("match");
-    else setCheckResult("no match");
-  };
 
   return (
     <>
       <p>Check result: {checkResult}</p>
       <div className="card-container">
-        {cards.map((card, index) => {
-          const { name, isFlipped } = card;
+        {cards.map((card) => {
+          const { index } = card;
           return (
-            <div
-              onClick={() => {
-                currentCards.push(card);
-                console.log(currentCards);
-                if (currentCards.length === 2) {
-                  checkForMatch();
-                  currentCards.splice(0);
-                }
-              }}
-              className="card"
+            <Card
+              cards={cards}
+              currentCards={currentCards}
+              setCards={setCards}
+              index={index}
               key={nextId()}
-            >
-              <img
-                src={isFlipped ? images[name] : images.defaultPhoto}
-                alt={name}
-              />
-            </div>
+            />
           );
         })}
       </div>
