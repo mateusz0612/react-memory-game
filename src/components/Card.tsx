@@ -18,9 +18,19 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
   };
 
   const checkForMatch = () => {
-    const [firstCardValue, secondCardValue] = currentCards;
-    if (firstCardValue.name === secondCardValue.name) console.log("match");
-    else console.log("no match");
+    const [firstCard, secondCard] = currentCards;
+
+    const firstCardIndex = firstCard.index;
+    const firstCardName = firstCard.name;
+    const secondCardIndex = secondCard.index;
+    const secondCardName = secondCard.name;
+
+    if (
+      firstCardName === secondCardName &&
+      firstCardIndex !== secondCardIndex
+    ) {
+      console.log("match");
+    } else console.log("no match");
   };
 
   const card = cards[index];
@@ -39,7 +49,7 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
         }
       }}
       src={isFaceUp ? images[name] : images.defaultPhoto}
-      alt=""
+      alt={name}
     />
   );
 };
