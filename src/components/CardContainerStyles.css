@@ -16,7 +16,6 @@ body {
   height: 100px;
   margin-right: 50px;
   border: 1px solid black;
-  transition: 0.5s;
 }
 
 .card img {

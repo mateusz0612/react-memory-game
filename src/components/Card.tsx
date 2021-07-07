@@ -7,9 +7,18 @@ interface Props {
   currentCards: CardInterface[];
   setCards: React.Dispatch<React.SetStateAction<CardInterface[]>>;
   index: number;
+  isPaused: boolean;
+  setIsPaused: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
+const Card: React.FC<Props> = ({
+  index,
+  cards,
+  setCards,
+  currentCards,
+  isPaused,
+  setIsPaused,
+}) => {
   const flipCard = (cardIndex: number) => {
     const newCards = cards.map((card, index) =>
       cardIndex === index ? { ...card, isFaceUp: true } : card
@@ -25,11 +34,12 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
       }
       return card;
     });
-    console.log("match");
     setCards(newCards);
+    currentCards.splice(0);
   };
 
   const handleNoMatch = (firstIndex: number, secondIndex: number) => {
+    setIsPaused(true);
     setTimeout(() => {
       const newCards = cards.map((card) => {
         const { index } = card;
@@ -39,6 +49,8 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
         return card;
       });
       setCards(newCards);
+      currentCards.splice(0);
+      setIsPaused(false);
     }, 500);
   };
 
@@ -50,15 +62,9 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
     const secondCardIndex = secondCard.index;
     const secondCardName = secondCard.name;
 
-    if (
-      firstCardName === secondCardName &&
-      firstCardIndex !== secondCardIndex
-    ) {
+    if (firstCardName === secondCardName && firstCardIndex !== secondCardIndex)
       handleMatch(firstCardIndex, secondCardIndex);
-    } else {
-      handleNoMatch(firstCardIndex, secondCardIndex);
-      console.log("no match");
-    }
+    else handleNoMatch(firstCardIndex, secondCardIndex);
   };
 
   const card = cards[index];
@@ -68,12 +74,12 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
     <img
       className="card"
       onClick={() => {
-        flipCard(index);
-        currentCards.push(card);
-        if (currentCards.length === 2) {
-          console.log(currentCards);
-          checkForMatch();
-          currentCards.splice(0);
+        if (!isPaused) {
+          flipCard(index);
+          currentCards.push(card);
+          if (currentCards.length === 2) {
+            checkForMatch();
+          }
         }
       }}
       src={isFaceUp || isGuessed ? images[name] : images.defaultPhoto}
