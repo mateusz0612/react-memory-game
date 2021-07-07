@@ -71,7 +71,7 @@ const Card: React.FC<Props> = ({
   const { name, isFaceUp, isGuessed } = card;
 
   return (
-    <img
+    <div
       className="card"
       onClick={() => {
         if (!isPaused) {
@@ -82,9 +82,13 @@ const Card: React.FC<Props> = ({
           }
         }
       }}
-      src={isFaceUp || isGuessed ? images[name] : images.defaultPhoto}
-      alt={name}
-    />
+      style={{
+        backgroundImage:
+          isFaceUp || isGuessed
+            ? `url(${images[name]})`
+            : `url(${images.defaultPhoto})`,
+      }}
+    ></div>
   );
 };
 
