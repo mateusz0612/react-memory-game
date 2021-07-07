@@ -32,6 +32,18 @@ const CardContainer: React.FC = () => {
       isFaceUp: false,
       index: 3,
     },
+    {
+      name: "react",
+      isGuessed: false,
+      isFaceUp: false,
+      index: 4,
+    },
+    {
+      name: "angular",
+      isGuessed: false,
+      isFaceUp: false,
+      index: 5,
+    },
   ]);
 
   return (

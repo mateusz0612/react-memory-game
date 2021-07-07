@@ -17,6 +17,31 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
     setCards(newCards);
   };
 
+  const handleMatch = (firstIndex: number, secondIndex: number) => {
+    const newCards = cards.map((card) => {
+      const { index } = card;
+      if (index === firstIndex || index === secondIndex) {
+        return { ...card, isGuessed: true };
+      }
+      return card;
+    });
+    console.log("match");
+    setCards(newCards);
+  };
+
+  const handleNoMatch = (firstIndex: number, secondIndex: number) => {
+    setTimeout(() => {
+      const newCards = cards.map((card) => {
+        const { index } = card;
+        if (index === firstIndex || index === secondIndex) {
+          return { ...card, isFaceUp: false };
+        }
+        return card;
+      });
+      setCards(newCards);
+    }, 500);
+  };
+
   const checkForMatch = () => {
     const [firstCard, secondCard] = currentCards;
 
@@ -29,25 +54,10 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
       firstCardName === secondCardName &&
       firstCardIndex !== secondCardIndex
     ) {
-      const newCards = cards.map((card) => {
-        const { index } = card;
-        if (index === firstCardIndex || index === secondCardIndex) {
-          return { ...card, isGuessed: true };
-        }
-        return card;
-      });
-      console.log("match");
-      setCards(newCards);
+      handleMatch(firstCardIndex, secondCardIndex);
     } else {
-      const newCards = cards.map((card) => {
-        const { index } = card;
-        if (index === firstCardIndex || index === secondCardIndex) {
-          return { ...card, isFaceUp: false };
-        }
-        return card;
-      });
+      handleNoMatch(firstCardIndex, secondCardIndex);
       console.log("no match");
-      setCards(newCards);
     }
   };
 
