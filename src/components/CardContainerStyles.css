@@ -1,0 +1,22 @@
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-container {
+  display: flex;
+}
+
+.card {
+  width: 100px;
+  line-height: 100px;
+  background: lightblue;
+  color: black;
+  margin: 20px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card:hover {
+  cursor: pointer;
+}
