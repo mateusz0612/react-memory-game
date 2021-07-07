@@ -43,8 +43,8 @@ const CardContainer: React.FC = () => {
             <Card
               cards={cards}
               currentCards={currentCards}
-              setCards={setCards}
               index={index}
+              setCards={setCards}
               key={nextId()}
             />
           );

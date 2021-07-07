@@ -29,12 +29,30 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
       firstCardName === secondCardName &&
       firstCardIndex !== secondCardIndex
     ) {
+      const newCards = cards.map((card) => {
+        const { index } = card;
+        if (index === firstCardIndex || index === secondCardIndex) {
+          return { ...card, isGuessed: true };
+        }
+        return card;
+      });
       console.log("match");
-    } else console.log("no match");
+      setCards(newCards);
+    } else {
+      const newCards = cards.map((card) => {
+        const { index } = card;
+        if (index === firstCardIndex || index === secondCardIndex) {
+          return { ...card, isFaceUp: false };
+        }
+        return card;
+      });
+      console.log("no match");
+      setCards(newCards);
+    }
   };
 
   const card = cards[index];
-  const { name, isFaceUp } = card;
+  const { name, isFaceUp, isGuessed } = card;
 
   return (
     <img
@@ -48,7 +66,7 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
           currentCards.splice(0);
         }
       }}
-      src={isFaceUp ? images[name] : images.defaultPhoto}
+      src={isFaceUp || isGuessed ? images[name] : images.defaultPhoto}
       alt={name}
     />
   );
