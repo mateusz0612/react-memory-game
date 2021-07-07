@@ -30,7 +30,31 @@ const gameCards: CardInterface[] = [
     isFaceUp: false,
     index: 3,
   },
-];
+  {
+    name: "vuejs",
+    isGuessed: false,
+    isFaceUp: false,
+    index: 4,
+  },
+  {
+    name: "vuejs",
+    isGuessed: false,
+    isFaceUp: false,
+    index: 5,
+  },
+  {
+    name: "javascript",
+    isGuessed: false,
+    isFaceUp: false,
+    index: 6,
+  },
+  {
+    name: "javascript",
+    isGuessed: false,
+    isFaceUp: false,
+    index: 7,
+  },
+].sort(() => Math.random() - 0.5); //shuffle elements in array
 
 const CardContainer: React.FC = () => {
   const [isPaused, setIsPaused] = useState(false);

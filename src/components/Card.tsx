@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import CardInterface from "../interfaces/CardInterface";
 import images from "../images";
 
@@ -19,6 +19,8 @@ const Card: React.FC<Props> = ({
   isPaused,
   setIsPaused,
 }) => {
+  const divRef = useRef<HTMLDivElement | null>(null);
+
   const flipCard = (cardIndex: number) => {
     const newCards = cards.map((card, index) =>
       cardIndex === index ? { ...card, isFaceUp: true } : card
@@ -34,6 +36,7 @@ const Card: React.FC<Props> = ({
       }
       return card;
     });
+    divRef.current!.style.border = "10px solid black";
     setCards(newCards);
     currentCards.splice(0);
   };
@@ -72,6 +75,7 @@ const Card: React.FC<Props> = ({
 
   return (
     <div
+      ref={divRef}
       className="card"
       onClick={() => {
         if (!isPaused) {

@@ -16,13 +16,12 @@ body {
   height: 100px;
   margin-right: 50px;
   border: 1px solid black;
-}
-
-.card img {
-  width: 100px;
-  height: 100px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .card:hover {
   cursor: pointer;
+  transform: translateX(180deg);
 }
