@@ -4,10 +4,9 @@ import Card from "./Card";
 import CardInterface from "../interfaces/CardInterface";
 import nextId from "react-id-generator";
 
-const currentCards: string[] = [];
+const currentCards: CardInterface[] = [];
 
 const CardContainer: React.FC = () => {
-  const [checkResult, setCheckResult] = useState("is there a match?");
   const [cards, setCards] = useState<CardInterface[]>([
     {
       name: "react",
@@ -37,7 +36,6 @@ const CardContainer: React.FC = () => {
 
   return (
     <>
-      <p>Check result: {checkResult}</p>
       <div className="card-container">
         {cards.map((card) => {
           const { index } = card;

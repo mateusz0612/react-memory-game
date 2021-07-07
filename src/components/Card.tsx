@@ -4,7 +4,7 @@ import images from "../images";
 
 interface Props {
   cards: CardInterface[];
-  currentCards: string[];
+  currentCards: CardInterface[];
   setCards: React.Dispatch<React.SetStateAction<CardInterface[]>>;
   index: number;
 }
@@ -19,24 +19,24 @@ const Card: React.FC<Props> = ({ index, cards, setCards, currentCards }) => {
 
   const checkForMatch = () => {
     const [firstCardValue, secondCardValue] = currentCards;
-    if (firstCardValue === secondCardValue) console.log("match");
+    if (firstCardValue.name === secondCardValue.name) console.log("match");
     else console.log("no match");
   };
 
-  const { name, isFaceUp } = cards[index];
+  const card = cards[index];
+  const { name, isFaceUp } = card;
 
   return (
     <img
       className="card"
       onClick={() => {
         flipCard(index);
-        currentCards.push(name);
+        currentCards.push(card);
         if (currentCards.length === 2) {
+          console.log(currentCards);
           checkForMatch();
           currentCards.splice(0);
         }
-        console.log(currentCards);
-        checkForMatch();
       }}
       src={isFaceUp ? images[name] : images.defaultPhoto}
       alt=""
