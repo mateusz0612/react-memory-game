@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./CardContainerStyles.css";
 import Card from "./Card";
 import CardInterface from "../interfaces/CardInterface";
-import nextId from "react-id-generator";
 import GameCards from "../gameFiles/GameCards";
 
 const currentCards: CardInterface[] = [];
@@ -49,15 +48,15 @@ const CardContainer: React.FC = () => {
 
   const checkForMatch = () => {
     const [firstCard, secondCard] = currentCards;
+    const { index: firstCardIndex, name: firstCardName } = firstCard;
+    const { index: secondCardIndex, name: secondCardName } = secondCard;
 
-    const firstCardIndex = firstCard.index;
-    const firstCardName = firstCard.name;
-    const secondCardIndex = secondCard.index;
-    const secondCardName = secondCard.name;
-
-    if (firstCardName === secondCardName && firstCardIndex !== secondCardIndex)
+    if (
+      firstCardName === secondCardName &&
+      firstCardIndex !== secondCardIndex
+    ) {
       handleMatch(firstCardIndex, secondCardIndex);
-    else handleNoMatch(firstCardIndex, secondCardIndex);
+    } else handleNoMatch(firstCardIndex, secondCardIndex);
   };
 
   return (
@@ -67,7 +66,7 @@ const CardContainer: React.FC = () => {
           const { index } = card;
           return (
             <Card
-              key={nextId()}
+              key={index}
               checkForMatch={checkForMatch}
               flipCard={flipCard}
               currentCards={currentCards}

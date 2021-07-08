@@ -7,15 +7,25 @@ body {
   justify-content: center;
 }
 
+h1 {
+  text-align: center;
+}
+
 .card-container {
+  margin: auto;
+  width: 65%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
 }
 
 .card {
-  width: 100px;
-  height: 100px;
-  margin-right: 50px;
+  width: 125px;
+  height: 165px;
+  margin: 20px;
   border: 1px solid black;
+  border-radius: 15px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

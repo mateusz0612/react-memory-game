@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import CardPropsInterface from "../interfaces/CardPropsInterface";
-import images from "../gameFiles/images";
+import images from "../gameFiles/Images";
 
 const Card: React.FC<CardPropsInterface> = ({
   index,
@@ -10,7 +10,7 @@ const Card: React.FC<CardPropsInterface> = ({
   checkForMatch,
   flipCard,
 }) => {
-  const divRef = useRef<HTMLDivElement | null>(null);
+  const divRef = useRef<HTMLDivElement>(null);
 
   const card = cards[index];
   const { name, isFaceUp, isGuessed } = card;
@@ -18,7 +18,7 @@ const Card: React.FC<CardPropsInterface> = ({
   return (
     <div
       ref={divRef}
-      className="card"
+      // className="card"
       onClick={() => {
         if (!isPaused) {
           flipCard(index);
@@ -28,13 +28,13 @@ const Card: React.FC<CardPropsInterface> = ({
           }
         }
       }}
-      style={{
-        backgroundImage:
-          isFaceUp || isGuessed
-            ? `url(${images[name]})`
-            : `url(${images.defaultPhoto})`,
-      }}
-    ></div>
+    >
+      <img
+        className="card"
+        src={isFaceUp || isGuessed ? images[name] : images.defaultPhoto}
+        alt={name}
+      />
+    </div>
   );
 };
 
