@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import CardPropsInterface from "../interfaces/CardPropsInterface";
-import images from "../gameFiles";
+import images from "../gameFiles/images";
 
 const Card: React.FC<CardPropsInterface> = ({
   index,

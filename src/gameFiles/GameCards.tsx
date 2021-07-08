@@ -49,6 +49,18 @@ const gameCards: CardInterface[] = [
     isFaceUp: false,
     index: 7,
   },
+  {
+    name: "php",
+    isGuessed: false,
+    isFaceUp: false,
+    index: 8,
+  },
+  {
+    name: "php",
+    isGuessed: false,
+    isFaceUp: false,
+    index: 9,
+  },
 ];
 
 export default gameCards;
