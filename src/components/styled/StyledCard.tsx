@@ -8,6 +8,7 @@ const StyledCard = styled.img`
 
   &:hover {
     cursor: pointer;
+    box-shadow: 0 0 5px #ccc;
   }
 
   @media only screen and (min-width: 360px) {
