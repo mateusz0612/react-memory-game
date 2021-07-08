@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./CardContainerStyles.css";
 import Card from "./Card";
 import CardInterface from "../interfaces/CardInterface";
 import GameCards from "../gameFiles/GameCards";
