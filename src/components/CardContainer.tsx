@@ -3,6 +3,7 @@ import "./CardContainerStyles.css";
 import Card from "./Card";
 import CardInterface from "../interfaces/CardInterface";
 import GameCards from "../gameFiles/GameCards";
+import StyledCardContainer from "./styled/StyledCardContainer";
 
 const currentCards: CardInterface[] = [];
 const gameCards: CardInterface[] = GameCards.sort(() => Math.random() - 0.5); //shuffle elements in array
@@ -61,7 +62,7 @@ const CardContainer: React.FC = () => {
 
   return (
     <>
-      <div className="card-container">
+      <StyledCardContainer>
         {cards.map((card) => {
           const { index } = card;
           return (
@@ -76,7 +77,7 @@ const CardContainer: React.FC = () => {
             />
           );
         })}
-      </div>
+      </StyledCardContainer>
     </>
   );
 };
