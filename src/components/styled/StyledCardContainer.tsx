@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledCardContainer = styled.div`
   margin: auto;
-  width: 65%;
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap");
+
 html {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -5,33 +7,11 @@ html {
 body {
   display: flex;
   justify-content: center;
+  background-image: url("http://unblast.com/wp-content/uploads/2021/01/Space-Background-Image-2.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 h1 {
   text-align: center;
-}
-
-.card-container {
-  margin: auto;
-  width: 65%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: row wrap;
-}
-
-.card {
-  width: 125px;
-  height: 165px;
-  margin: 20px;
-  border: 1px solid black;
-  border-radius: 15px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.card:hover {
-  cursor: pointer;
-  transform: translateX(180deg);
 }

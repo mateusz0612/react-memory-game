@@ -1,10 +1,10 @@
-import React from "react";
 import CardContainer from "./components/CardContainer";
+import StyledH1 from "./components/styled/StyledH1";
 
 function App() {
   return (
     <div>
-      <h1>Memory game!</h1>
+      <StyledH1>Memory game!</StyledH1>
       <CardContainer />
     </div>
   );
