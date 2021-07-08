@@ -51,6 +51,11 @@ const CardContainer: React.FC = () => {
     const { index: firstCardIndex, name: firstCardName } = firstCard;
     const { index: secondCardIndex, name: secondCardName } = secondCard;
 
+    if (firstCardIndex === secondCardIndex) {
+      currentCards.splice(0, 1);
+      return;
+    }
+
     if (
       firstCardName === secondCardName &&
       firstCardIndex !== secondCardIndex
