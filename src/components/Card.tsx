@@ -16,6 +16,9 @@ const Card: React.FC<CardPropsInterface> = ({
 
   return (
     <div
+      style={{
+        margin: "0.7rem",
+      }}
       onClick={() => {
         if (!isPaused) {
           flipCard(index);
