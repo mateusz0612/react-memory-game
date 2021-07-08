@@ -3,58 +3,10 @@ import "./CardContainerStyles.css";
 import Card from "./Card";
 import CardInterface from "../interfaces/CardInterface";
 import nextId from "react-id-generator";
+import GameCards from "../gameFiles/GameCards";
 
 const currentCards: CardInterface[] = [];
-const gameCards: CardInterface[] = [
-  {
-    name: "react",
-    isGuessed: false,
-    isFaceUp: false,
-    index: 0,
-  },
-  {
-    name: "angular",
-    isGuessed: false,
-    isFaceUp: false,
-    index: 1,
-  },
-  {
-    name: "react",
-    isGuessed: false,
-    isFaceUp: false,
-    index: 2,
-  },
-  {
-    name: "angular",
-    isGuessed: false,
-    isFaceUp: false,
-    index: 3,
-  },
-  {
-    name: "vuejs",
-    isGuessed: false,
-    isFaceUp: false,
-    index: 4,
-  },
-  {
-    name: "vuejs",
-    isGuessed: false,
-    isFaceUp: false,
-    index: 5,
-  },
-  {
-    name: "javascript",
-    isGuessed: false,
-    isFaceUp: false,
-    index: 6,
-  },
-  {
-    name: "javascript",
-    isGuessed: false,
-    isFaceUp: false,
-    index: 7,
-  },
-].sort(() => Math.random() - 0.5); //shuffle elements in array
+const gameCards: CardInterface[] = GameCards.sort(() => Math.random() - 0.5); //shuffle elements in array
 
 const CardContainer: React.FC = () => {
   const [isPaused, setIsPaused] = useState(false);
@@ -117,10 +69,7 @@ const CardContainer: React.FC = () => {
             <Card
               key={nextId()}
               checkForMatch={checkForMatch}
-              handleMatch={handleMatch}
-              handleNoMatch={handleNoMatch}
               flipCard={flipCard}
-              setIsPaused={setIsPaused}
               currentCards={currentCards}
               index={index}
               isPaused={isPaused}

@@ -1,17 +1,14 @@
 import React, { useRef } from "react";
 import CardPropsInterface from "../interfaces/CardPropsInterface";
-import images from "../images";
+import images from "../gameFiles";
 
 const Card: React.FC<CardPropsInterface> = ({
   index,
   currentCards,
   isPaused,
   cards,
-  handleMatch,
-  handleNoMatch,
   checkForMatch,
   flipCard,
-  setIsPaused,
 }) => {
   const divRef = useRef<HTMLDivElement | null>(null);
 

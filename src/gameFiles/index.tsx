@@ -7,6 +7,7 @@ const images: Record<string, string> = {
     "https://assets.codepen.io/t-1003/internal/avatars/teams/default.png?fit=crop&format=auto&height=256&version=1513627136&width=256",
   javascript:
     "https://piecioshka.pl/assets/images/posts/javascript/logo-javascript.svg",
+  php: "https://cdn.iconscout.com/icon/free/png-256/php-27-226042.png",
 };
 
 export default images;
