@@ -2,6 +2,7 @@ import React from "react";
 import CardPropsInterface from "../interfaces/CardPropsInterface";
 import images from "../gameFiles/Images";
 import StyledCard from "./styled/StyledCard";
+import ReactCardFlip from "react-card-flip";
 
 const Card: React.FC<CardPropsInterface> = ({
   index,
@@ -29,10 +30,13 @@ const Card: React.FC<CardPropsInterface> = ({
         }
       }}
     >
-      <StyledCard
-        src={isFaceUp || isGuessed ? images[name] : images.defaultPhoto}
-        alt={name}
-      />
+      <ReactCardFlip
+        isFlipped={isFaceUp || isGuessed}
+        flipDirection="horizontal"
+      >
+        <StyledCard src={images.defaultPhoto} alt={name} />
+        <StyledCard src={images[name]} alt={name} />
+      </ReactCardFlip>
     </div>
   );
 };

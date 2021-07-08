@@ -3,7 +3,6 @@ import styled from "styled-components";
 const StyledCard = styled.img`
   width: 4.5rem;
   height: 5.5rem;
-  border: 1px solid #fff;
   border-radius: 15px;
   background-color: #fff;
 
