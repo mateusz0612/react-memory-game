@@ -1,10 +1,13 @@
 import CardInterface from "./CardInterface";
 
 export default interface CardPropsInterface {
-  cards: CardInterface[];
+  flipCard: (index: number) => void;
+  handleMatch: (firstIndex: number, secondIndex: number) => void;
+  handleNoMatch: (firstIndex: number, secondIndex: number) => void;
+  checkForMatch: () => void;
+  setIsPaused: React.Dispatch<React.SetStateAction<boolean>>;
   currentCards: CardInterface[];
-  setCards: React.Dispatch<React.SetStateAction<CardInterface[]>>;
   index: number;
   isPaused: boolean;
-  setIsPaused: React.Dispatch<React.SetStateAction<boolean>>;
+  cards: CardInterface[];
 }
