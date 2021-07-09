@@ -23,3 +23,5 @@ To Visit App:
 Project made during my internship at Billennium.
 During this project I improved my React/TypeScript skills and also i learned how to split complex problem into many smaller problems. 
 
+See deployment at **https://matt-react-memory-game.netlify.app/**
+
