@@ -8,6 +8,7 @@ function App() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "column",
         backgroundImage:
           'url("http://unblast.com/wp-content/uploads/2021/01/Space-Background-Image-2.jpg")',
         backgroundSize: "cover",
