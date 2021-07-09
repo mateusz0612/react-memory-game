@@ -7,6 +7,7 @@ const StyledCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-flow: row wrap;
+  animation: appear 1.5s;
 
   @media only screen and (min-width: 1024px) {
     width: 80%;
