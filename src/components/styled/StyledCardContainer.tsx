@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledCardContainer = styled.div`
-  margin: auto;
+  margin: 0px auto;
   width: 100%;
   display: flex;
   justify-content: center;
