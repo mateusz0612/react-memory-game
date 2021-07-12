@@ -6,10 +6,9 @@ import ReactCardFlip from "react-card-flip";
 
 const Card: React.FC<CardPropsInterface> = ({
   index,
-  currentCards,
+  setCurrentCards,
   isPaused,
   cards,
-  checkForMatch,
   flipCard,
 }) => {
   const card = cards[index];
@@ -19,15 +18,11 @@ const Card: React.FC<CardPropsInterface> = ({
     <div
       style={{
         margin: "0.7rem",
+        pointerEvents: isFaceUp || isPaused ? "none" : "auto",
       }}
       onClick={() => {
-        if (!isPaused) {
-          flipCard(index);
-          currentCards.push(card);
-          if (currentCards.length === 2) {
-            checkForMatch();
-          }
-        }
+        flipCard(index);
+        setCurrentCards((cards) => [...cards, card]);
       }}
     >
       <ReactCardFlip

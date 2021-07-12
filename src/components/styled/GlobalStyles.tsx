@@ -15,12 +15,12 @@ const GlobalStyles = createGlobalStyle`
     @keyframes appear {
     from {
         opacity: 0;
-    }
+        }
 
     to {
         opacity: 100;
+        }
     }
-}
 `;
 
 export default GlobalStyles;
