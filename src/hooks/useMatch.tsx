@@ -63,10 +63,10 @@ const useMatch = () => {
 
   return {
     cards,
-    setCards,
     currentCards,
-    setCurrentCards,
     isPaused,
+    setCurrentCards,
+    setCards,
     checkForMatch,
     flipCard,
   };
